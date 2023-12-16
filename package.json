@@ -1,6 +1,6 @@
 {
   "name": "free-cleverbot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple and unofficial NPM module for interacting with the same API that the Cleverbot website uses for free.",
   "keywords": [
     "cleverbot",
@@ -24,8 +24,8 @@
   "main": "index.js",
   "typings": "index.d.ts",
   "directories": {
-    "scripts": "scripts",
-    "test": "test"
+    "test": "test",
+    "scripts": "scripts"
   },
   "files": [
     "scripts/",
