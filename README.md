@@ -3,19 +3,22 @@
     <p>
         <b>Simple and unofficial NPM module for interacting with the same API that the Cleverbot website uses for free.</b>
     </p>
-    <a href="https://www.npmjs.com/package/free-cleverbot" target="_blank" title="free-cleverbot - npm" style="text-decoration:none">
-        <img src="https://img.shields.io/npm/dt/free-cleverbot?maxAge=3600" alt="The number of downloads">
-        <img src="https://img.shields.io/github/last-commit/sefinek24/free-cleverbot" alt="Last commit">
-        <img src="https://img.shields.io/github/issues/sefinek24/free-cleverbot" alt="Issues">
-        <img src="https://img.shields.io/github/commit-activity/w/sefinek24/free-cleverbot" alt="Commit activity">
-        <img src="https://img.shields.io/github/languages/code-size/sefinek24/free-cleverbot" alt="Code size">
-    </a>
+    <p>
+        <a href="https://www.npmjs.com/package/free-cleverbot" target="_blank" title="free-cleverbot - npm" style="text-decoration:none">
+            <img src="https://img.shields.io/npm/dt/free-cleverbot?maxAge=3600" alt="The number of downloads">
+            <img src="https://img.shields.io/github/last-commit/sefinek24/free-cleverbot" alt="Last commit">
+            <img src="https://img.shields.io/github/issues/sefinek24/free-cleverbot" alt="Issues">
+            <img src="https://img.shields.io/github/commit-activity/w/sefinek24/free-cleverbot" alt="Commit activity">
+            <img src="https://img.shields.io/github/languages/code-size/sefinek24/free-cleverbot" alt="Code size">
+        </a>
+    </p>
 </div>
 
-This module allows developers to interact with Cleverbot's API without the need for an official API key, making it a convenient and cost-effective solution for incorporating Cleverbot's chatbot capabilities into your projects.
+This module allows developers to interact with Cleverbot's [API](https://en.wikipedia.org/wiki/API) without the need for an official API key, making it a convenient and cost-effective solution for incorporating Cleverbot's chatbot capabilities into your projects.
+
 
 ## ⚠️ Warning
-**Using this module may result in a permanent IP ban on cleverbot.com, although this is unlikely.**
+**Using this module may result in a permanent [IP](https://en.wikipedia.org/wiki/IP_address) ban on [cleverbot.com](https://www.cleverbot.com), although this is unlikely.**
 
 While this module provides access to Cleverbot's API for free, it's essential to use it responsibly and be aware of the potential consequences. Cleverbot.com may take action against IP addresses that abuse their service. Therefore, it's crucial to exercise caution and consider the following guidelines when using this module:
 
@@ -29,8 +32,10 @@ While this module provides access to Cleverbot's API for free, it's essential to
 
 We encourage responsible usage of this module and respect for Cleverbot's service.
 
+
 ## 🔒 Security
-This module randomly selects a User Agent from an [array] and utilizes it to send requests to the `cleverbot.com` server. Upon restarting the application, a different user agent will be selected at random.
+This module randomly selects a [User Agent](https://en.wikipedia.org/wiki/User_agent) from an [array](https://github.com/sefinek24/free-cleverbot/blob/d17c9e8b5ec594bd26b3faa497897ad2e706b47c/scripts/useragent.js#L2) and utilizes it to send requests to the `cleverbot.com` server. Upon restarting the application, a different user agent will be selected at random.
+
 
 ## 📥 Installation
 To install this module, you can use npm or yarn:
@@ -39,7 +44,8 @@ To install this module, you can use npm or yarn:
 npm install free-cleverbot
 ```
 
-## 🏓 Example
+
+## 💬 Example
 ```js
 const CleverBot = require('free-cleverbot');
 const context = [];
@@ -54,12 +60,15 @@ const context = [];
 })();
 ```
 
+
 ## 🤔 What can this module be used for?
-- Your Discord Bot
+- Your [Discord Bot](https://discord.com/developers/docs/intro)
 - *Do you have additional ideas for utilizing this module? Create a Pull Request and contribute them here!*
+
 
 ## 💜 Credits
 It is inspired by the [IntriguingTiles/cleverbot-free](https://github.com/IntriguingTiles/cleverbot-free) project.
+
 
 ## 📝 MIT License
 Copyright 2023 © by [Sefinek](https://sefinek.net). All Rights Reserved.
