@@ -25,15 +25,15 @@
   "typings": "index.d.ts",
   "directories": {
     "scripts": "scripts",
-    "tests": "tests"
+    "test": "test"
   },
   "files": [
     "scripts/",
-    "tests/",
+    "test/",
     "index.js"
   ],
   "scripts": {
-    "test": "node tests/index.test.js",
+    "test": "node test/async.js && node test/promise.js",
     "up": "ncu -u && npm install && npm update && npm audit fix"
   },
   "dependencies": {

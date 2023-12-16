@@ -25,5 +25,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm test
+      - name: Run async/await test
+        run: node test/async.js
+
+      - name: Run promise test
+        run: node test/promise.js
