@@ -1,7 +1,7 @@
 {
   "name": "free-cleverbot",
   "version": "1.0.0",
-  "description": "Always free Cleverbot, powered by www.cleverbot.com.",
+  "description": "Simple and unofficial NPM module for interacting with the same API that the Cleverbot website uses for free.",
   "keywords": [
     "cleverbot",
     "cleverbot-api",
