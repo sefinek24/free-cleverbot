@@ -6,8 +6,8 @@
     <p>
         <a href="https://www.npmjs.com/package/free-cleverbot" target="_blank" title="free-cleverbot - npm" style="text-decoration:none">
             <img src="https://img.shields.io/npm/dt/free-cleverbot?maxAge=3600" alt="The number of downloads">
-            <img src="https://img.shields.io/github/last-commit/sefinek24/free-cleverbot" alt="Last commit">
             <img src="https://img.shields.io/github/issues/sefinek24/free-cleverbot" alt="Issues">
+            <img src="https://img.shields.io/github/last-commit/sefinek24/free-cleverbot" alt="Last commit">
             <img src="https://img.shields.io/github/commit-activity/w/sefinek24/free-cleverbot" alt="Commit activity">
             <img src="https://img.shields.io/github/languages/code-size/sefinek24/free-cleverbot" alt="Code size">
         </a>
