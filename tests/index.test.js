@@ -1,4 +1,4 @@
-const CleverBot = require('free-cleverbot');
+const CleverBot = require('../index.js');
 
 const firstMsg = 'Hello my friend! Do you like cats? >w<';
 const context = [firstMsg];
