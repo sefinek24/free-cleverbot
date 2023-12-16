@@ -66,7 +66,14 @@ const context = [];
 - *Do you have additional ideas for utilizing this module? Create a Pull Request and contribute them here!*
 
 
-## 💜 Credits
+## 💙 Thanks
+If you require any assistance or have questions regarding this module, don't hesitate to open a new [GitHub Issue](https://github.com/sefinek24/free-cleverbot/issues).
+Your feedback and contributions are highly appreciated.
+If you find this module valuable and useful for your projects, we kindly invite you to show your support by giving it a star on GitHub.
+Thank you for using [free-cleverbot](https://www.npmjs.com/package/free-cleverbot)!
+
+
+## 🔖 Credits
 It is inspired by the [IntriguingTiles/cleverbot-free](https://github.com/IntriguingTiles/cleverbot-free) project.
 
 
