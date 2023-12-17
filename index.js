@@ -27,6 +27,7 @@ async function updateCookiesIfNeeded() {
 	try {
 		if (!cookies || Date.now() - lastCookieUpdate >= COOKIE_EXPIRATION_TIME) {
 			const cookieResponse = await axios.get(`https://www.cleverbot.com/extras/conversation-social-min.js?${new Date().toJSON().split('T')[0]}`, {
+				timeout: 15000,
 				headers: {
 					...DEFAULT_HEADERS,
 					'Cookie': cookies ? `${cookies[0].split(';')[0]}; _cbsid=-1` : '',
@@ -57,7 +58,7 @@ async function callCleverbotAPI(stimulus, context, language) {
 
 	try {
 		const response = await axios.post(buildAPIUrl(stimulus, language), payload, {
-			timeout: 60000,
+			timeout: 9000,
 			headers: {
 				...DEFAULT_HEADERS,
 				'Content-Length': Buffer.byteLength(payload),
