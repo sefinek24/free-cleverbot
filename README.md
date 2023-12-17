@@ -3,7 +3,7 @@
     <p>
         <b>
             Simple and unofficial NPM module for interacting with the same API that the Cleverbot website uses.<br>
-            Available for free ✔️
+            Available for free! ✔️
         </b>
     </p>
     <p>
