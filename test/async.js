@@ -19,7 +19,7 @@ async function action() {
 
 			console.log(`[${i}]: -> ${res}`);
 		} catch (err) {
-			throw new Error(`Error at interaction ${i + 1}. ${err.message}`);
+			throw new Error(`Interaction ${i}. ${err.message}`);
 		}
 	}
 

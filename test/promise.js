@@ -25,7 +25,7 @@ function interactWithCleverBot(i) {
 			interactWithCleverBot(i + 1);
 		})
 		.catch(err => {
-			console.error(`Error at interaction ${i + 1}: ${err.message}`);
+			console.error(`[${i}]: ${err.message}`);
 
 			interactWithCleverBot(i + 1);
 		});
