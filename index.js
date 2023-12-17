@@ -31,7 +31,7 @@ async function updateCookiesIfNeeded() {
 				timeout: 25000,
 				headers: {
 					...DEFAULT_HEADERS,
-					'Cookie': cookies ? `${cookies[0].split(';')[0]}; _cbsid=-1` : '',
+					// 'Cookie': cookies ? `${cookies[0].split(';')[0]}; _cbsid=-1` : '',
 				},
 			});
 
@@ -92,7 +92,7 @@ module.exports = async (stimulus, context = [], language = 'en') => {
 			const additionalCooldown = Math.floor(Math.random() * 4000) + 1000;
 			const waitTime = RETRY_BASE_COOLDOWN + additionalCooldown;
 
-			console.warn(`Error on attempt ${i + 1}. ${err.message}. Waiting ${waitTime / 1000}s...`);
+			console.log(`Error on attempt ${i + 1}. ${err.message}. Waiting ${waitTime / 1000}s...`);
 			await sleep(waitTime);
 		}
 	}
