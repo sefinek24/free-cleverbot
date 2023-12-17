@@ -1,6 +1,6 @@
 const CleverBot = require('../index.js');
 
-const firstMsg = 'Do you like cats? >w<';
+const firstMsg = 'Do you like cats?';
 const context = [firstMsg];
 const totalInteractions = 6;
 
