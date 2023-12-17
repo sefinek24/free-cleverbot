@@ -20,7 +20,7 @@ const DEFAULT_HEADERS = {
 };
 
 const COOKIE_EXPIRATION_TIME = 86400000; // 24 hours
-const MAX_RETRY_ATTEMPTS = 15;
+const MAX_RETRY_ATTEMPTS = 4;
 let cbsId, cookies, lastCookieUpdate = 0, lastResponse, xai;
 
 async function updateCookiesIfNeeded() {
