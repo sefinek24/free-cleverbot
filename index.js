@@ -39,7 +39,11 @@ async function updateCookiesIfNeeded() {
 			lastCookieUpdate = Date.now();
 		}
 	} catch (err) {
-		throw new Error(`Failed to update cookies: ${err.message}`);
+		if (err.response && err.response.status === 403) {
+			throw new Error(`Failed to update cookies. Your IP is banned. ${err.message}`);
+		} else {
+			throw new Error(`Failed to update cookies. Unknown error. ${err.message}`);
+		}
 	}
 }
 
@@ -88,12 +92,16 @@ module.exports = async (stimulus, context = [], language = 'en') => {
 		try {
 			return await callCleverbotAPI(stimulus, context, language);
 		} catch (err) {
-			// Random additional cooldown between 1 and 5 seconds
-			const additionalCooldown = Math.floor(Math.random() * 4000) + 1000;
-			const waitTime = RETRY_BASE_COOLDOWN + additionalCooldown;
+			if (err.response && err.response.status === 403) {
+				throw new Error(`Error on attempt ${i + 1}. Sorry, but your IP address is banned. ${err.message}`);
+			} else {
+				// Random additional cooldown between 1 and 5 seconds
+				const additionalCooldown = Math.floor(Math.random() * 4000) + 1000;
+				const waitTime = RETRY_BASE_COOLDOWN + additionalCooldown;
 
-			console.log(`Error on attempt ${i + 1}. ${err.message}. Waiting ${waitTime / 1000}s...`);
-			await sleep(waitTime);
+				console.log(`Error on attempt ${i + 1}. ${err.message}. Waiting ${waitTime / 1000}s...`);
+				await sleep(waitTime);
+			}
 		}
 	}
 

@@ -1,31 +1,33 @@
 const CleverBot = require('../index.js');
+const { logUserMessage, logCleverbotResponse } = require('./scripts/log.js');
 
-const firstMsg = 'Do you like cats?';
-const context = [firstMsg];
+const messageToSend = 'Do you like cats?';
+const context = [messageToSend];
 const totalInteractions = 6;
 
-async function action() {
+const interactWithCleverBot = async () => {
 	for (let i = 0; i < totalInteractions; i++) {
-		try {
-			console.log(`[${i}]: <- ${context[context.length - 1]}`);
+		const currentMessage = context[context.length - 1];
+		logUserMessage(i, currentMessage);
 
-			const res = await CleverBot(context[context.length - 1], context, 'en');
+		try {
+			const res = await CleverBot(currentMessage, context, 'en');
 			if (!res) {
 				console.error(`CleverBOT did not return a response at interaction ${i + 1}.`);
 				process.exit(1);
 			}
 
 			context.push(res);
+			logCleverbotResponse(i, res);
 
-			console.log(`[${i}]: -> ${res}`);
 		} catch (err) {
-			throw new Error(`Interaction ${i}. ${err.message}`);
+			console.error(`Error during interaction ${i + 1}: ${err.message}`);
+			break;
 		}
 	}
 
-	console.log(context);
-	console.log();
-}
+	console.log('Final conversation context:', context);
+};
 
-console.log('Async/await test...');
-action();
+console.log('Starting async/await test...');
+interactWithCleverBot().then(() => console.log('Finished.\n'));
