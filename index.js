@@ -19,8 +19,9 @@ const DEFAULT_HEADERS = {
 	'User-Agent': useragent(),
 };
 
-const COOKIE_EXPIRATION_TIME = 86400000; // 24 hours
 const MAX_RETRY_ATTEMPTS = 3;
+const RETRY_BASE_COOLDOWN = 4000; // Base cooldown period in milliseconds (4 seconds)
+const COOKIE_EXPIRATION_TIME = 86400000; // 24 hours
 let cbsId, cookies, lastCookieUpdate = 0, lastResponse, xai;
 
 async function updateCookiesIfNeeded() {
@@ -87,10 +88,14 @@ module.exports = async (stimulus, context = [], language = 'en') => {
 		try {
 			return await callCleverbotAPI(stimulus, context, language);
 		} catch (err) {
-			console.warn(`Error on attempt ${i + 1}. ${err.message}. Waiting 4s...`);
-			await sleep(4000);
+			// Random additional cooldown between 1 and 5 seconds
+			const additionalCooldown = Math.floor(Math.random() * 4000) + 1000;
+			const waitTime = RETRY_BASE_COOLDOWN + additionalCooldown;
+
+			console.warn(`Error on attempt ${i + 1}. ${err.message}. Waiting ${waitTime / 1000}s...`);
+			await sleep(waitTime);
 		}
 	}
 
-	throw new Error(`Failed to get a response from Cleverbot after ${MAX_RETRY_ATTEMPTS} attempts`);
+	throw new Error(`Failed to get a response from Cleverbot after ${MAX_RETRY_ATTEMPTS} attempts. ${cbsId ? `Session ${cbsId}.` : 'Unknown session.'}`);
 };
