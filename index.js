@@ -43,7 +43,7 @@ async function callCleverbotAPI(stimulus, context, language) {
 	return lastResponse;
 }
 
-module.exports = async (stimulus, context = [], language) => {
+module.exports = async (stimulus, context = [], language = 'en') => {
 	await updateCookiesIfNeeded();
 
 	for (let i = 0; i < MAX_RETRY_ATTEMPTS; i++) {
