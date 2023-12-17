@@ -2,7 +2,6 @@ const axios = require('axios');
 const md5 = require('./scripts/md5.js');
 const useragent = require('./scripts/useragent.js');
 
-const USER_AGENT = useragent();
 const DEFAULT_HEADERS = {
 	'Accept': '*/*',
 	'Accept-Encoding': 'gzip, deflate, br',
@@ -17,8 +16,9 @@ const DEFAULT_HEADERS = {
 	'Sec-Fetch-Mode': 'cors',
 	'Sec-Fetch-Site': 'same-origin',
 	'Sec-Gpc': '1',
-	'User-Agent': USER_AGENT,
+	'User-Agent': useragent(),
 };
+
 const COOKIE_EXPIRATION_TIME = 86400000; // 24 hours
 const MAX_RETRY_ATTEMPTS = 15;
 let cbsId, cookies, lastCookieUpdate = 0, lastResponse, xai;
@@ -42,10 +42,9 @@ async function updateCookiesIfNeeded() {
 }
 
 function buildAPIUrl(stimulus, language) {
-	let url = 'https://www.cleverbot.com/1webservicemin?uc=UseOfficialCleverbotAPI&ncf=V2';
-	if (cbsId) {
-		url += `&out=${encodeURIComponent(lastResponse)}&in=${encodeURIComponent(stimulus)}&bot=c&cbsid=${cbsId}&xai=${xai}&ns=4&dl=${language}`;
-	}
+	let url = 'https://www.cleverbot.com/webservicemin?uc=UseOfficialCleverbotAPI&ncf=V2';
+	if (cbsId) url += `&out=${encodeURIComponent(lastResponse)}&in=${encodeURIComponent(stimulus)}&bot=c&cbsid=${cbsId}&xai=${xai}&ns=4&dl=${language}`;
+
 	return url;
 }
 
