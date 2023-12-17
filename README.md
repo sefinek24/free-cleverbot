@@ -1,7 +1,10 @@
 <div align="center">
     <h1>🤖 Free CleverBOT NPM Module</h1>
     <p>
-        <b>Simple and unofficial NPM module for interacting with the same API that the Cleverbot website uses. Available for free.</b>
+        <b>
+            Simple and unofficial NPM module for interacting with the same API that the Cleverbot website uses.<br>
+            Available for free ✔️
+        </b>
     </p>
     <p>
         <a href="https://www.npmjs.com/package/free-cleverbot" target="_blank" title="free-cleverbot - npm" style="text-decoration:none">
