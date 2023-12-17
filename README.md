@@ -68,14 +68,17 @@ The module configuration includes the following settings, which can be customize
 ## 💬 Example
 ```js
 const CleverBot = require('free-cleverbot');
+
+const message = 'Do you like cats? >w<';
 const context = [];
 
 (async () => {
-    const res = await CleverBot('Do you like cats? >w<', context, 'en'); // input, conversation context, language
+    const res = await CleverBot(message, context, 'en'); // Input, conversation context, language
 
+    // Add the user's message first to the context, followed by Cleverbot's response to maintain the correct conversational order.
+    context.push(message);
     context.push(res);
-    context.push(firstMsg);
-    
+
     console.log(res);
 })();
 ```
