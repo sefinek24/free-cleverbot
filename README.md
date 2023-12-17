@@ -21,7 +21,7 @@ This module enables developers to interact with the Cleverbot [API](https://en.w
 
 
 ## 🔒 Security
-The module selects a [User Agent](https://en.wikipedia.org/wiki/User_agent) randomly from an [array](https://github.com/sefinek24/free-cleverbot/blob/d17c9e8b5ec594bd26b3faa497897ad2e706b47c/scripts/useragent.js#L2) and uses it to send requests to `cleverbot.com`.
+The module selects a [User Agent](https://en.wikipedia.org/wiki/User_agent) randomly from an [array](https://github.com/sefinek24/free-cleverbot/blob/17442083acfc4ef29de709b788023b3e7bdb5981/scripts/useragent.js#L1) and uses it to send requests to `cleverbot.com`.
 Each restart of the application results in the selection of a different user agent at random.
 
 
