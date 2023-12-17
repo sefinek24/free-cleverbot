@@ -90,7 +90,7 @@ const context = [];
 
 ## 🤔 What can this module be used for?
 - Your [Discord Bot](https://discord.com/developers/docs/intro)
-- *Do you have additional ideas for utilizing this module? Create a Pull Request and contribute them here!*
+- *Do you have additional ideas for utilizing this module? Create a [Pull Request](https://github.com/sefinek24/free-cleverbot/pulls) and contribute them here!*
 
 
 ## 💙 Thanks
