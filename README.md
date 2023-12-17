@@ -61,6 +61,26 @@ const context = [];
 ```
 
 
+## 😻 » CleverBot API
+
+### `CleverBot(message, context, language)`
+
+A function for interacting with the Cleverbot API. It processes the provided message, context, and language, then returns a response from Cleverbot.
+
+- `message` (string): The message that the user wants to send to Cleverbot. This is the primary text to which Cleverbot will respond.
+- `context` (array): An array containing the history of previous messages in the conversation. Used to maintain the context of the conversation. Each element of the array represents one line of dialogue.
+- `language` (string, default: `en`): The language in which the conversation is to be conducted. Set to English (`en`) by default.
+
+
+## ⚙️ Module Settings
+The module configuration includes the following settings, which can be customized according to needs:
+
+| Variable                 | Value    | Description                                                            |
+|--------------------------|----------|------------------------------------------------------------------------|
+| `COOKIE_EXPIRATION_TIME` | 86400000 | The expiration time for cookies in milliseconds (24 hours).            |
+| `MAX_RETRY_ATTEMPTS`     | 4        | The maximum number of attempts to make a request to the Cleverbot API. |
+
+
 ## 🤔 What can this module be used for?
 - Your [Discord Bot](https://discord.com/developers/docs/intro)
 - *Do you have additional ideas for utilizing this module? Create a Pull Request and contribute them here!*
