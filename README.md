@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>🤖 Free CleverBOT NPM Module</h1>
+    <h1>❎ 💸 Free CleverBOT NPM Module 🤖 💻</h1>
     <p>
         <b>
             Simple and unofficial NPM module for interacting with the same API that the Cleverbot website uses.<br>
