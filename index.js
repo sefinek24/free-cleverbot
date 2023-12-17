@@ -86,7 +86,7 @@ module.exports = async (stimulus, context = [], language = 'en') => {
 		try {
 			return await callCleverbotAPI(stimulus, context, language);
 		} catch (err) {
-			console.error(`Error on attempt ${i + 1}. ${err.message}. Waiting 5s...`);
+			console.warn(`Error on attempt ${i + 1}. ${err.message}. Waiting 5s...`);
 			await sleep(5000);
 		}
 	}
