@@ -76,8 +76,8 @@ const context = [];
     const response = await CleverBot(message, context, 'en'); // Input, conversation context, language
 
     /*
-     * Add the user's message first to the context followed by
-     * Cleverbot's response to maintain the correct conversational order.
+     * Add the user's message first to the context followed by Cleverbot's
+     * response to maintain the correct conversational order.
      */
     context.push(message); // User's message 
     context.push(response); // Cleverbot's response
