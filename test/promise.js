@@ -1,6 +1,6 @@
 const CleverBot = require('../index.js');
 
-const firstMsg = 'Hello my friend! Do you like cats? >w<';
+const firstMsg = 'Do you like cats? >w<';
 const context = [firstMsg];
 const totalInteractions = 6;
 
@@ -14,7 +14,10 @@ function interactWithCleverBot(i) {
 
 	CleverBot(context[context.length - 1], context, 'en')
 		.then(res => {
-			if (!res) throw new Error(`CleverBot did not return a response at interaction ${i + 1}.`);
+			if (!res) {
+				console.error(`CleverBOT did not return a response at interaction ${i + 1}.`);
+				process.exit(1);
+			}
 
 			context.push(res);
 			console.log(`[${i}]: -> ${res}`);
@@ -28,4 +31,5 @@ function interactWithCleverBot(i) {
 		});
 }
 
+console.log('Promise test...');
 interactWithCleverBot(0);

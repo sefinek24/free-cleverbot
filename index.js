@@ -1,4 +1,5 @@
 const axios = require('axios');
+const sleep = require('./scripts/sleep.js');
 const md5 = require('./scripts/md5.js');
 const useragent = require('./scripts/useragent.js');
 
@@ -85,11 +86,8 @@ module.exports = async (stimulus, context = [], language = 'en') => {
 		try {
 			return await callCleverbotAPI(stimulus, context, language);
 		} catch (err) {
-			if (err.response && err.response.status === 503) {
-				await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
-			} else {
-				console.error(`Error on attempt ${i + 1}: ${err.message}`);
-			}
+			console.error(`Error on attempt ${i + 1}. ${err.message}. Waiting 5s...`);
+			await sleep(5000);
 		}
 	}
 
