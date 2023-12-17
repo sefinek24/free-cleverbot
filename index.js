@@ -11,7 +11,6 @@ const DEFAULT_HEADERS = {
 	'Origin': 'https://www.cleverbot.com',
 	'Sec-Ch-Ua': '"Not_A Brand";v="8"',
 	'Sec-Ch-Ua-Mobile': '?0',
-	'Sec-Ch-Ua-Platform': '"Windows"',
 	'Sec-Fetch-Dest': 'empty',
 	'Sec-Fetch-Mode': 'cors',
 	'Sec-Fetch-Site': 'same-origin',
