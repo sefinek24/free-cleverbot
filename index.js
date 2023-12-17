@@ -37,13 +37,12 @@ async function updateCookiesIfNeeded() {
 			lastCookieUpdate = Date.now();
 		}
 	} catch (err) {
-		console.error(`Error updating cookies: ${err.message}`);
-		throw err;
+		throw new Error(`Failed to update cookies: ${err.message}`);
 	}
 }
 
 function buildAPIUrl(stimulus, language) {
-	let url = 'https://www.cleverbot.com/webservicemin?uc=UseOfficialCleverbotAPI&ncf=V2';
+	let url = 'https://www.cleverbot.com/1webservicemin?uc=UseOfficialCleverbotAPI&ncf=V2';
 	if (cbsId) {
 		url += `&out=${encodeURIComponent(lastResponse)}&in=${encodeURIComponent(stimulus)}&bot=c&cbsid=${cbsId}&xai=${xai}&ns=4&dl=${language}`;
 	}
@@ -77,8 +76,7 @@ async function callCleverbotAPI(stimulus, context, language) {
 		}
 		return lastResponse;
 	} catch (err) {
-		console.error(`Error calling Cleverbot API: ${err.message}`);
-		throw err;
+		throw new Error(`Cleverbot API call failed. ${err.message}`);
 	}
 }
 
@@ -92,7 +90,7 @@ module.exports = async (stimulus, context = [], language = 'en') => {
 			if (err.response && err.response.status === 503) {
 				await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
 			} else {
-				console.error(`Error on attempt ${i}: ${err.message}`);
+				console.error(`Error on attempt ${i + 1}: ${err.message}`);
 			}
 		}
 	}
