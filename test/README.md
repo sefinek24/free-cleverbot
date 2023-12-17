@@ -13,7 +13,7 @@ These symbols help in understanding and visualizing the flow of conversation bet
 ```
 PS C:\GitHub\npm\free-cleverbot> npm run test
 
-> free-cleverbot@1.0.2 test
+> free-cleverbot@1.1.0 test
 > node test/async.js && node test/promise.js
 
 Async/await test...
