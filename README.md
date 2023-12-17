@@ -63,7 +63,7 @@ The module configuration includes the following settings, which can be customize
 | Variable                 | Value    | Description                                                            |
 |--------------------------|----------|------------------------------------------------------------------------|
 | `COOKIE_EXPIRATION_TIME` | 86400000 | The expiration time for cookies in milliseconds (24 hours).            |
-| `MAX_RETRY_ATTEMPTS`     | 4        | The maximum number of attempts to make a request to the Cleverbot API. |
+| `MAX_RETRY_ATTEMPTS`     | 3        | The maximum number of attempts to make a request to the Cleverbot API. |
 
 
 ## 💬 Example

@@ -20,7 +20,7 @@ const DEFAULT_HEADERS = {
 };
 
 const COOKIE_EXPIRATION_TIME = 86400000; // 24 hours
-const MAX_RETRY_ATTEMPTS = 4;
+const MAX_RETRY_ATTEMPTS = 3;
 let cbsId, cookies, lastCookieUpdate = 0, lastResponse, xai;
 
 async function updateCookiesIfNeeded() {
@@ -86,8 +86,8 @@ module.exports = async (stimulus, context = [], language = 'en') => {
 		try {
 			return await callCleverbotAPI(stimulus, context, language);
 		} catch (err) {
-			console.warn(`Error on attempt ${i + 1}. ${err.message}. Waiting 5s...`);
-			await sleep(5000);
+			console.warn(`Error on attempt ${i + 1}. ${err.message}. Waiting 4s...`);
+			await sleep(4000);
 		}
 	}
 
