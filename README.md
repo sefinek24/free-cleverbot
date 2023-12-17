@@ -17,6 +17,10 @@
 This module allows developers to interact with Cleverbot's [API](https://en.wikipedia.org/wiki/API) without the need for an official API key, making it a convenient and cost-effective solution for incorporating Cleverbot's chatbot capabilities into your projects.
 
 
+## 🔒 Security
+This module randomly selects a [User Agent](https://en.wikipedia.org/wiki/User_agent) from an [array](https://github.com/sefinek24/free-cleverbot/blob/d17c9e8b5ec594bd26b3faa497897ad2e706b47c/scripts/useragent.js#L2) and utilizes it to send requests to the `cleverbot.com` server. Upon restarting the application, a different user agent will be selected at random.
+
+
 ## ⚠️ Warning
 **Using this module may result in a permanent [IP](https://en.wikipedia.org/wiki/IP_address) ban on [cleverbot.com](https://www.cleverbot.com), although this is unlikely.**
 
@@ -33,31 +37,11 @@ While this module provides access to Cleverbot's API for free, it's essential to
 We encourage responsible usage of this module and respect for Cleverbot's service.
 
 
-## 🔒 Security
-This module randomly selects a [User Agent](https://en.wikipedia.org/wiki/User_agent) from an [array](https://github.com/sefinek24/free-cleverbot/blob/d17c9e8b5ec594bd26b3faa497897ad2e706b47c/scripts/useragent.js#L2) and utilizes it to send requests to the `cleverbot.com` server. Upon restarting the application, a different user agent will be selected at random.
-
-
 ## 📥 Installation
 To install this module, you can use npm or yarn:
 
 ```bash
 npm install free-cleverbot
-```
-
-
-## 💬 Example
-```js
-const CleverBot = require('free-cleverbot');
-const context = [];
-
-(async () => {
-    const res = await CleverBot('Do you like cats? >w<', context, 'en'); // input, conversation context, language
-
-    context.push(res);
-    context.push(firstMsg);
-    
-    console.log(res);
-})();
 ```
 
 
@@ -79,6 +63,22 @@ The module configuration includes the following settings, which can be customize
 |--------------------------|----------|------------------------------------------------------------------------|
 | `COOKIE_EXPIRATION_TIME` | 86400000 | The expiration time for cookies in milliseconds (24 hours).            |
 | `MAX_RETRY_ATTEMPTS`     | 4        | The maximum number of attempts to make a request to the Cleverbot API. |
+
+
+## 💬 Example
+```js
+const CleverBot = require('free-cleverbot');
+const context = [];
+
+(async () => {
+    const res = await CleverBot('Do you like cats? >w<', context, 'en'); // input, conversation context, language
+
+    context.push(res);
+    context.push(firstMsg);
+    
+    console.log(res);
+})();
+```
 
 
 ## 🤔 What can this module be used for?
