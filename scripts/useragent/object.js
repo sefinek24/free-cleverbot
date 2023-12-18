@@ -1,4 +1,4 @@
-const randomUserAgent = require('./random-useragent.js');
+const randomUserAgent = require('./get-ua.js');
 const { userAgent, secChUa, secChUaFullArch, secChUaFullBitness, secChUaFullVersion, secChUaFullVersionList, secChUaPlatform, secChUaPlatformVersion } = randomUserAgent();
 
 const DEFAULT_HEADERS = {
