@@ -16,21 +16,21 @@ let ns = 0;
 let lastResponse;
 
 async function updateCookiesIfNeeded() {
-	if (!cookies || Date.now() - lastCookieUpdate >= COOKIE_EXPIRATION_TIME) {
-		try {
-			const cookieResponse = await axios.get(`https://www.cleverbot.com/extras/conversation-social-min.js?${new Date().toISOString().split('T')[0].replace(/-/g, '')}`, {
-				timeout: 25000,
-				headers: {
-					...DEFAULT_HEADERS,
-					'Cookie': '_cbsid=-1; note=1',
-				},
-			});
+	if (cookies && Date.now() - lastCookieUpdate < COOKIE_EXPIRATION_TIME) return;
 
-			cookies = cookieResponse.headers['set-cookie'];
-			lastCookieUpdate = Date.now();
-		} catch (err) {
-			throw new Error(`Failed to update cookies: ${err.message}`);
-		}
+	try {
+		const cookieResponse = await axios.get(`https://www.cleverbot.com/extras/conversation-social-min.js?${new Date().toISOString().split('T')[0].replace(/-/g, '')}`, {
+			timeout: 25000,
+			headers: {
+				...DEFAULT_HEADERS,
+				'Cookie': '_cbsid=-1; note=1',
+			},
+		});
+
+		cookies = cookieResponse.headers['set-cookie'];
+		lastCookieUpdate = Date.now();
+	} catch (err) {
+		throw new Error(`Failed to update cookies: ${err.message}`);
 	}
 }
 
