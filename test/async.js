@@ -29,4 +29,4 @@ const interactWithCleverBot = async () => {
 };
 
 console.log('Starting async/await test...');
-interactWithCleverBot().then(() => console.log('\n'));
+interactWithCleverBot().then(() => console.log());
