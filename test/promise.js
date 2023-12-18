@@ -1,17 +1,14 @@
 const CleverBot = require('../index.js');
 const { logUserMessage, logCleverbotResponse } = require('./scripts/log.js');
 
-const firstMsg = 'Do you like cats?';
+const message = 'Do you like cats?';
 const context = [];
 const totalInteractions = 6;
 
 const interactWithCleverBot = i => {
-	if (i >= totalInteractions) {
-		console.log('Final conversation context:', context);
-		return;
-	}
+	if (i >= totalInteractions) return;
 
-	const messageToSend = i === 0 ? firstMsg : context[context.length - 1];
+	const messageToSend = i === 0 ? message : context[context.length - 1];
 	logUserMessage(i, messageToSend);
 
 	CleverBot(messageToSend, context, 'en')
@@ -21,9 +18,10 @@ const interactWithCleverBot = i => {
 				process.exit(1);
 			}
 
+			context.push(messageToSend);
 			context.push(res);
-			logCleverbotResponse(i, res);
 
+			logCleverbotResponse(i, res);
 			interactWithCleverBot(i + 1);
 		})
 		.catch(err => {
