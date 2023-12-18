@@ -30,6 +30,7 @@
   "files": [
     "scripts/",
     "test/",
+    "example.js",
     "index.d.ts",
     "index.js"
   ],
