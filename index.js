@@ -17,9 +17,12 @@ let lastResponse;
 
 /* Build payloads */
 function buildCookieHeader() {
-	let cookieHeader = cookies ? `_cbsid=-1; note=1; ${cookies[0].split(';')[0]};` : '';
-	if (xai) cookieHeader += ` XAI=${cbsId.substring(0, 3)};`;
-	if (lastResponse) cookieHeader += ` CBALT=1~${lastResponse};`;
+	let cookieHeader = cookies ? `_cbsid=-1; ${cookies[0].split(';')[0]};` : '';
+	if (xai) cookieHeader += ` XAI=${xai.substring(0, 3)};`;
+	if (cbsId) cookieHeader += ` CBSID=${cbsId};`;
+	cookieHeader += ' note=1;';
+	if (lastResponse) cookieHeader += ` CBALT=1~${encodeURIComponent(lastResponse)};`;
+
 	return cookieHeader;
 }
 
