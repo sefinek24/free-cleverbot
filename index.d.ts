@@ -1,7 +1,11 @@
 declare module 'free-cleverbot' {
     type Stimulus = string;
-    type Context = string[];
-    type Language = 'en' | 'pl' | 'es' | 'fr' | 'de' | 'it' | 'pt' | undefined;
+    type Context = string[] | undefined;
+    type Language =
+        'af' | 'id' | 'ms' | 'ca' | 'cs' | 'da' | 'de' | 'en' | 'es' | 'eu' |
+        'ti' | 'fr' | 'gl' | 'hr' | 'zu' | 'is' | 'it' | 'lt' | 'hu' | 'nl' |
+        'no' | 'pl' | 'pt' | 'ro' | 'sl' | 'fi' | 'sv' | 'vi' | 'tr' | 'el' |
+        'bg' | 'ru' | 'sr' | 'uk' | 'ko' | 'zh' | 'ja' | 'hi' | 'th' | undefined;
 
     /**
      * The main function of the module, which communicates with the Cleverbot API.
