@@ -64,7 +64,7 @@ The module configuration includes the following settings, which can be customize
 |--------------------------|----------|------------------------------------------------------------------------|
 | `MAX_RETRY_ATTEMPTS`     | 3        | The maximum number of attempts to make a request to the Cleverbot API. |
 | `RETRY_BASE_COOLDOWN`    | 4000     | Base cooldown in case of API error (4 seconds).                        |
-| `COOKIE_EXPIRATION_TIME` | 86400000 | The expiration time for cookies in milliseconds (24 hours).            |
+| `COOKIE_EXPIRATION_TIME` | 15768000 | The expiration time for cookies in milliseconds (4,38 hours).          |
 
 ## 💬 Example
 ```js
