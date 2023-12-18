@@ -29,4 +29,15 @@ const DEFAULT_HEADERS = {
 	'User-Agent': userAgent,
 };
 
-module.exports = DEFAULT_HEADERS;
+
+function getValidHeaders(headers) {
+	return Object.fromEntries(
+		Object.entries(headers).filter(
+			([, value]) => value !== undefined && value !== null,
+		),
+	);
+}
+
+console.log(getValidHeaders(DEFAULT_HEADERS));
+
+module.exports = getValidHeaders(DEFAULT_HEADERS);
