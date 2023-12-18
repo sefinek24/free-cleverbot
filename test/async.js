@@ -19,7 +19,6 @@ const interactWithCleverBot = async () => {
 
 			context.push(res);
 			logCleverbotResponse(i, res);
-
 		} catch (err) {
 			console.error(`Error during interaction ${i + 1}: ${err.message}`);
 			break;
