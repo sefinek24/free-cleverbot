@@ -15,6 +15,24 @@ let xai;
 let ns = 0;
 let lastResponse;
 
+/* Build payloads */
+function buildCookieHeader() {
+	let cookieHeader = cookies ? `_cbsid=-1; note=1; ${cookies[0].split(';')[0]};` : '';
+	if (xai) cookieHeader += ` XAI=${cbsId.substring(0, 3)};`;
+	if (lastResponse) cookieHeader += ` CBALT=1~${lastResponse};`;
+	return cookieHeader;
+}
+
+function buildMainPayload(stimulus, context, language) {
+	let payload = `stimulus=${encodeURIComponent(stimulus)}&`;
+	context.reverse().forEach((msg, i) => {
+		payload += `vText${i + 2}=${encodeURIComponent(msg)}&`;
+	});
+	payload += `${language ? `cb_settings_language=${language}&` : ''}cb_settings_scripting=no&islearning=1&icognoid=wsf&icognocheck=`;
+	return payload + md5(payload.substring(7, 33));
+}
+
+/* Update cookies */
 async function updateCookiesIfNeeded() {
 	if (cookies && Date.now() - lastCookieUpdate < COOKIE_EXPIRATION_TIME) return;
 
@@ -34,28 +52,24 @@ async function updateCookiesIfNeeded() {
 	}
 }
 
-function buildPayload(stimulus, context, language) {
-	let payload = `stimulus=${encodeURIComponent(stimulus)}&`;
-	context.reverse().forEach((msg, i) => {
-		payload += `vText${i + 2}=${encodeURIComponent(msg)}&`;
-	});
-	payload += `${language ? `cb_settings_language=${language}&` : ''}cb_settings_scripting=no&islearning=1&icognoid=wsf&icognocheck=`;
-	return payload + md5(payload.substring(7, 33));
-}
-
+/* Main Cleverbot function */
 async function callCleverbotAPI(stimulus, context, language) {
 	await updateCookiesIfNeeded();
-	const payload = buildPayload(stimulus, context, language);
+
+	const payload = buildMainPayload(stimulus, context, language);
+	ns += 1;
 
 	try {
-		ns = ns + 1;
-		const url = `https://www.cleverbot.com/webservicemin?uc=UseOfficialCleverbotAPI&ncf=V2&${cbsId ? `out=${encodeURIComponent(lastResponse)}&in=${encodeURIComponent(stimulus)}&bot=c&cbsid=${cbsId}&xai=${xai}&ns=${ns}&al=&dl=&flag=&user=&mode=1&alt=0&reac=&emo=&sou=website&xed=&` : ''}`;
+		const urlParams = cbsId ? `out=${encodeURIComponent(lastResponse)}&in=${encodeURIComponent(stimulus)}&bot=c&cbsid=${cbsId}&xai=${xai}&ns=${ns}&al=&dl=&flag=&user=&mode=1&alt=0&reac=&emo=&sou=website&xed=&` : '';
+		const url = `https://www.cleverbot.com/webservicemin?uc=UseOfficialCleverbotAPI&ncf=V2&${urlParams}`;
+		// console.log(url);
+
 		const response = await axios.post(url, payload, {
 			timeout: 19000,
 			headers: {
 				...DEFAULT_HEADERS,
 				'Content-Length': Buffer.byteLength(payload),
-				'Cookie': cookies ? `_cbsid=-1; note=1; ${cookies[0].split(';')[0]}; ${xai ? `XAI=${cbsId.substring(0, 3)};` : ''} ${lastResponse ? `CBALT=1~${lastResponse};` : ''}` : '',
+				'Cookie': buildCookieHeader(),
 			},
 		});
 
@@ -87,5 +101,6 @@ module.exports = async (stimulus, context = [], language = 'en') => {
 			}
 		}
 	}
+
 	throw new Error(`Failed to get a response from Cleverbot after ${MAX_RETRY_ATTEMPTS} attempts.`);
 };
