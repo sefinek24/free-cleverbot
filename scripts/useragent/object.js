@@ -38,6 +38,4 @@ function getValidHeaders(headers) {
 	);
 }
 
-console.log(getValidHeaders(DEFAULT_HEADERS));
-
 module.exports = getValidHeaders(DEFAULT_HEADERS);
