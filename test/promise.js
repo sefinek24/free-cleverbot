@@ -30,5 +30,5 @@ const interactWithCleverBot = i => {
 		});
 };
 
-console.log('Starting Promise test...');
+console.log('» Starting promise test...');
 interactWithCleverBot(0);
