@@ -3,7 +3,7 @@ const { logUserMessage, logCleverbotResponse } = require('./scripts/log.js');
 
 const message = 'Do you like cats?';
 const context = [];
-const totalInteractions = 6;
+const totalInteractions = 4;
 
 const interactWithCleverBot = i => {
 	if (i >= totalInteractions) return;
