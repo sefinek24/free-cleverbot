@@ -72,6 +72,7 @@ const CleverBot = require('free-cleverbot');
 
 CleverBot.settings({
     debug: false,
+    defaultLanguage: 'eng',
     maxRetryAttempts: 5,
     retryBaseCooldown: 4000,
     cookieExpirationTime: 18000000
@@ -81,7 +82,7 @@ const message = 'Do you like cats? >w<';
 const context = [];
 
 (async () => {
-    const response = await CleverBot.interact(message, context, 'en'); // Input, conversation context, language
+    const response = await CleverBot.interact(message, context); // Input, conversation context, language (not required if you are using `CleverBot.settings` with `defaultLanguage`)
 
     /*
      * Add the user's message first to the context followed by Cleverbot's

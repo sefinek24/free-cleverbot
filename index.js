@@ -161,7 +161,7 @@ CleverBot.settings = config => {
 			if (typeof lang === 'string' && SUPPORTED_LANGUAGES.has(lang)) {
 				selectedLanguage = lang;
 			} else {
-				throw new Error(`Invalid value for defaultLanguage. Supported languages are: ${[...SUPPORTED_LANGUAGES].join(', ')}.`);
+				throw new Error(`Invalid value for defaultLanguage.\nSupported languages are: ${[...SUPPORTED_LANGUAGES].join(', ')}`);
 			}
 		}
 		if ('maxRetryAttempts' in config) {
