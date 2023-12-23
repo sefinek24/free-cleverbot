@@ -30,7 +30,7 @@ function buildCookieHeader() {
 	cookieHeader += ' note=1;';
 	if (lastResponse) cookieHeader += ` CBALT=1~${encodeURIComponent(lastResponse)};`;
 
-	if (debug) console.debug('Cookie Header:', { cookieHeader });
+	if (debug) console.debug('Cookie header:', { cookieHeader });
 	return cookieHeader;
 }
 
@@ -44,7 +44,7 @@ function buildMainPayload(stimulus, context, language) {
 	payload += `${language ? `cb_settings_language=${language}&` : ''}cb_settings_scripting=no&islearning=1&icognoid=wsf&icognocheck=`;
 	payload += payload + md5(payload.substring(7, 33));
 
-	if (debug) console.debug('Built Payload:', { stimulus, context, language, payload });
+	if (debug) console.debug('Built payload:', { stimulus, context, language, payload });
 	return payload;
 }
 
