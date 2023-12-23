@@ -61,7 +61,7 @@ The module configuration includes the following settings:
 | Variable                                                                                                                          | Value    | Description                                                   |
 |-----------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------------------|
 | [`MAX_RETRY_ATTEMPTS`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L6)     | 3        | The maximum number of attempts to make a request to the API.  |
-| [`RETRY_BASE_COOLDOWN`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L7)    | 4000     | Base cooldown in case of API error (4 seconds).               |
+| [`RETRY_BASE_COOLDOWN`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L7)    | 3000     | Base cooldown in case of API error (3 seconds).               |
 | [`COOKIE_EXPIRATION_TIME`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L8) | 15768000 | The expiration time for cookies in milliseconds (4,38 hours). |
 
 ## 💬 Example (see also [example.js](example.js))

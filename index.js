@@ -4,7 +4,7 @@ const md5 = require('./scripts/md5.js');
 const DEFAULT_HEADERS = require('./scripts/headers/default-headers.js');
 
 const MAX_RETRY_ATTEMPTS = 3;
-const RETRY_BASE_COOLDOWN = 4000;
+const RETRY_BASE_COOLDOWN = 3000;
 const COOKIE_EXPIRATION_TIME = 15768000; // 4,38 hours
 
 let cookies;
@@ -40,7 +40,7 @@ async function updateCookiesIfNeeded() {
 	if (cookies && Date.now() - lastCookieUpdate < COOKIE_EXPIRATION_TIME) return;
 
 	try {
-		const cookieResponse = await axios.get(`https://www.cleverbot.com/extras/conversation-social-min.js?${new Date().toISOString().split('T')[0].replace(/-/g, '')}`, {
+		const cookieResponse = await axios.get(`https://www.cleverbot.com/extras/conversation-social-min.js1?${new Date().toISOString().split('T')[0].replace(/-/g, '')}`, {
 			timeout: 25000,
 			headers: {
 				...DEFAULT_HEADERS,
@@ -51,7 +51,11 @@ async function updateCookiesIfNeeded() {
 		cookies = cookieResponse.headers['set-cookie'];
 		lastCookieUpdate = Date.now();
 	} catch (err) {
-		throw new Error(`Failed to update cookies: ${err.message}`);
+		if (err.response && err.response.status === 403) {
+			throw new Error(`Error code ${err.response.status}. Cookies cannot be updated because your IP address has been banned.`);
+		} else {
+			throw new Error(`Failed to update cookies. ${err.message}`);
+		}
 	}
 }
 
@@ -84,23 +88,27 @@ async function callCleverbotAPI(stimulus, context, language) {
 			return lastResponse;
 		}
 
-		throw new Error('Invalid response format from Cleverbot API');
+		throw new Error('Failure: The response format from Cleverbot API is invalid!');
 	} catch (err) {
 		throw new Error(`Cleverbot API call failed: ${err.message}`);
 	}
 }
 
 module.exports = async (stimulus, context = [], language = 'en') => {
+	let incrementalDelay = 0;
+
 	for (let i = 0; i < MAX_RETRY_ATTEMPTS; i++) {
 		try {
 			return await callCleverbotAPI(stimulus, context, language);
 		} catch (err) {
 			if (err.response && err.response.status === 403) {
-				throw new Error(`Attempt ${i + 1} failed: IP address is banned. ${err.message}`);
+				throw new Error(`Attempt ${i + 1} failed: Error code ${err.response.status}. The response could not be obtained because your IP address has been banned.`);
 			} else {
-				const waitTime = RETRY_BASE_COOLDOWN + Math.floor(Math.random() * 4000) + 1000;
+				const waitTime = RETRY_BASE_COOLDOWN + Math.floor(Math.random() * 2000) + 1000 + incrementalDelay;
 				console.log(`Attempt ${i + 1} failed: ${err.message}. Waiting ${waitTime / 1000}s...`);
 				await sleep(waitTime);
+
+				incrementalDelay += Math.floor(Math.random() * 3000) + 1000;
 			}
 		}
 	}
