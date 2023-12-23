@@ -75,7 +75,7 @@ CleverBot.config({
     defaultLanguage: 'en',
     maxRetryAttempts: 5,
     retryBaseCooldown: 4000,
-    cookieExpirationTime: 18000000
+    cookieExpirationTime: 15768000
 });
 
 const message = 'Do you like cats? >w<';

@@ -2,12 +2,12 @@ declare module 'free-cleverbot' {
     export type Stimulus = string;
     export type Context = string[];
     export type Language =
-        'af' | 'id' | 'ms' | 'ca' | 'cs' | 'da' | 'de' | 'en' | 'es' | 'eu' |
-        'ti' | 'fr' | 'gl' | 'hr' | 'zu' | 'is' | 'it' | 'lt' | 'hu' | 'nl' |
-        'no' | 'pl' | 'pt' | 'ro' | 'sl' | 'fi' | 'sv' | 'vi' | 'tr' | 'el' |
-        'bg' | 'ru' | 'sr' | 'uk' | 'ko' | 'zh' | 'ja' | 'hi' | 'th';
+        | 'af' | 'id' | 'ms' | 'ca' | 'cs' | 'da' | 'de' | 'en' | 'es' | 'eu'
+        | 'ti' | 'fr' | 'gl' | 'hr' | 'zu' | 'is' | 'it' | 'lt' | 'hu' | 'nl'
+        | 'no' | 'pl' | 'pt' | 'ro' | 'sl' | 'fi' | 'sv' | 'vi' | 'tr' | 'el'
+        | 'bg' | 'ru' | 'sr' | 'uk' | 'ko' | 'zh' | 'ja' | 'hi' | 'th';
 
-    type Headers = {
+    export type Headers = {
         'Accept': string;
         'Accept-Encoding': string;
         'Accept-Language': string;
@@ -81,20 +81,13 @@ declare module 'free-cleverbot' {
      * @example
      * const CleverBot = require('free-cleverbot');
      *
-     * CleverBot.config({
-     *    debug: false,
-     *    defaultLanguage: 'en',
-     *    maxRetryAttempts: 5,
-     *    retryBaseCooldown: 4000,
-     *    cookieExpirationTime: 18000000,
-     * });
+     * CleverBot.config({ debug: false, defaultLanguage: 'en', maxRetryAttempts: 5, retryBaseCooldown: 4000, cookieExpirationTime: 15768000 });
      *
-     * const msg = 'Hello';
      * const context = [];
      *
      * (async () => {
      *    try {
-     *        const res = await CleverBot.interact(msg, context);
+     *        const res = await CleverBot.interact('Hello', context);
      *
      *        context.push(msg);
      *        context.push(res);
@@ -119,7 +112,7 @@ declare module 'free-cleverbot' {
      *    defaultLanguage: 'en',
      *    maxRetryAttempts: 5,
      *    retryBaseCooldown: 4000,
-     *    cookieExpirationTime: 18000000,
+     *    cookieExpirationTime: 15768000,
      * });
      * @throws {Error} If the provided configuration object is invalid.
      */
