@@ -26,8 +26,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-        with:
-          cmd: test
 
       - name: Run async/await test
         run: node test/async.js
