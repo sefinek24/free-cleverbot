@@ -5,7 +5,7 @@ const context = [];
 
 (async () => {
 	try {
-		const res = await CleverBot(msg, context, 'en');
+		const res = await CleverBot.interact(msg, context, 'en');
 
 		context.push(msg.content);
 		context.push(res);
