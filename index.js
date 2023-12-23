@@ -198,4 +198,6 @@ CleverBot.getData = () => {
 	return { debug, selectedLanguage, maxRetryAttempts, retryBaseCooldown, cookie: { cookieExpirationTime, data: [{ content: cookies, lastUpdate: lastCookieUpdate }] }, session: { cbsId, xai, ns, lastResponse }, request: { successfulRequestsCount, failedRequestsCount, headers: DEFAULT_HEADERS } };
 };
 
+CleverBot.version = version;
+
 module.exports = CleverBot;
