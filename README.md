@@ -64,7 +64,7 @@ The module configuration includes the following settings:
 | [`RETRY_BASE_COOLDOWN`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L7)    | 4000     | Base cooldown in case of API error (4 seconds).               |
 | [`COOKIE_EXPIRATION_TIME`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L8) | 15768000 | The expiration time for cookies in milliseconds (4,38 hours). |
 
-## 💬 Example
+## 💬 Example (see [example.js](example.js))
 ```js
 const CleverBot = require('free-cleverbot');
 
