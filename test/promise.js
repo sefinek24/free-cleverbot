@@ -1,7 +1,7 @@
 const CleverBot = require('../index.js');
 const { logUserMessage, logCleverbotResponse } = require('./scripts/log.js');
 
-const message = 'Do you like cats?';
+const message = 'Cat?';
 const context = [];
 const totalInteractions = 4;
 
