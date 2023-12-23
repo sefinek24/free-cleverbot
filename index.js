@@ -28,9 +28,11 @@ function buildCookieHeader() {
 
 function buildMainPayload(stimulus, context, language) {
 	let payload = `stimulus=${encodeURIComponent(stimulus)}&`;
+
 	context.reverse().forEach((msg, i) => {
-		payload += `vText${i + 2}=${encodeURIComponent(msg)}&`;
+		payload += `vText${i}=${encodeURIComponent(msg)}&`;
 	});
+
 	payload += `${language ? `cb_settings_language=${language}&` : ''}cb_settings_scripting=no&islearning=1&icognoid=wsf&icognocheck=`;
 	return payload + md5(payload.substring(7, 33));
 }
@@ -40,7 +42,7 @@ async function updateCookiesIfNeeded() {
 	if (cookies && Date.now() - lastCookieUpdate < COOKIE_EXPIRATION_TIME) return;
 
 	try {
-		const cookieResponse = await axios.get(`https://www.cleverbot.com/extras/conversation-social-min.js1?${new Date().toISOString().split('T')[0].replace(/-/g, '')}`, {
+		const cookieResponse = await axios.get(`https://www.cleverbot.com/extras/conversation-social-min.js?${new Date().toISOString().split('T')[0].replace(/-/g, '')}`, {
 			timeout: 28000,
 			headers: {
 				...DEFAULT_HEADERS,
