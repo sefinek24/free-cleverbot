@@ -1,7 +1,12 @@
 const CleverBot = require('../index.js');
 const { logStartTests, logUserMessage, logCleverbotResponse, logWrongResponse, logFatalError } = require('./scripts/log.js');
 
-const message = 'Cat?';
+// Debug
+const isDebugMode = process.argv.slice(2).includes('--debug');
+if (isDebugMode) CleverBot.settings({ debug: true });
+
+// Variables
+const message = 'Cat';
 const context = [];
 const totalInteractions = 4;
 
