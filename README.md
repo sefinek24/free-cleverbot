@@ -47,7 +47,7 @@ npm install free-cleverbot
 ```
 
 
-## 😻 » How to use?
+## 🔧 » Usage
 
 ### `CleverBot(message, context, language)`
 A function for interacting with the Cleverbot API. It processes the provided message, context, and language, then returns a response from Cleverbot.
