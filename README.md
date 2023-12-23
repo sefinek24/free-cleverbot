@@ -54,6 +54,26 @@ A function for interacting with the Cleverbot API. It processes the provided mes
 - `context[]` (**array**, **required**): An array containing the history of previous messages in the conversation. Used to maintain the context of the conversation. Each element of the array represents one line of dialogue.
 - `language` (**string**, **optional**, **default**: `en`): The language in which the conversation is to be conducted.
 
+### `CleverBot.config(configurationObject)`
+Configures the settings of the Cleverbot module. This function allows you to set various options that affect how the module interacts with the Cleverbot API.
+
+- `configurationObject` (**object**, **required**): An object containing configuration settings.
+    - `debug` (**boolean**, **not required**): If set to `true`, the module will provide detailed debug information.
+    - `defaultLanguage` (**string**, **not required**): The default language for the Cleverbot conversations.
+    - `maxRetryAttempts` (**number**, **not required**): The maximum number of retry attempts for the API call if it fails initially.
+    - `retryBaseCooldown` (**number**, **not required**): The base cooldown period (in milliseconds) before retrying the API call.
+    - `cookieExpirationTime` (**number**, **not required**): The time (in milliseconds) after which the cookie should be refreshed.
+
+### `CleverBot.getData()`
+Retrieves the current session data and other relevant information stored in the Cleverbot module.
+
+- **Returns**: See [types](https://github.com/sefinek24/free-cleverbot/blob/c0c6748fb8828a611b005216e768af370cb61ea4/index.d.ts#L64).
+
+### `CleverBot.version`
+A property that represents the current version number of the `free-cleverbot` module, conforming to the Semantic Versioning (SemVer) standard.
+
+- **Returns**: A string that specifies the current version of the module.
+
 
 ## ⚙️ Module config
 The module configuration includes the following config:
