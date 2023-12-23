@@ -68,7 +68,7 @@ Configures the settings of the Cleverbot module. This function allows you to set
   | [`cookieExpirationTime`](https://github.com/sefinek24/free-cleverbot/blob/36887fa8433b03269da0a40575790d4494814e6a/index.js#L13) | `15768000`<br>(4.38 hours) | Sets the time in milliseconds after which the cookie should be refreshed.                        |
 
 ### `CleverBot.getData()`
-Retrieves the current session data and other relevant information stored in the Cleverbot module.
+Retrieves the current session data and other relevant information.
 
 - **Returns**: See [types](https://github.com/sefinek24/free-cleverbot/blob/c0c6748fb8828a611b005216e768af370cb61ea4/index.d.ts#L64).
 
