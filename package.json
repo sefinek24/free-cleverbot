@@ -23,17 +23,6 @@
   "author": "Sefinek <contact@sefinek.net> (https://sefinek.net)",
   "main": "index.js",
   "typings": "index.d.ts",
-  "directories": {
-    "test": "test",
-    "scripts": "scripts"
-  },
-  "files": [
-    "scripts/",
-    "test/",
-    "example.js",
-    "index.d.ts",
-    "index.js"
-  ],
   "scripts": {
     "test": "node test/async.js && node test/promise.js",
     "up": "ncu -u && npm install && npm update && npm audit fix"
