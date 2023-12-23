@@ -26,13 +26,13 @@ jobs:
         run: yarn install
 
       - name: Run async/await test
-        run: node test/async.js
+        run: yarn node test/async.js
 
       - name: Run async/await test (debug)
-        run: node test/async.js --debug
+        run: yarn node test/async.js --debug
 
       - name: Run promise test
-        run: node test/promise.js
+        run: yarn node test/promise.js
 
       - name: Check memory usage
-        run: node test/memory.usage.js
+        run: yarn node test/memory.usage.js
