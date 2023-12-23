@@ -36,8 +36,6 @@ Therefore, consider the following guidelines:
 - **Use at Your Own Risk**: Users assume responsibility for any potential consequences, including IP bans or other actions by Cleverbot.com.
 - **Consider Official API Key**: For extensive and commercial use, consider obtaining an official API key from Cleverbot for reliable and uninterrupted access.
 
-We advocate for responsible usage of this module and respect for Cleverbot's service.
-
 
 ## 📥 Installation
 Install this module using npm or yarn:
