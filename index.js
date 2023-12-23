@@ -9,7 +9,7 @@ const CleverBot = {};
 let debug = false;
 let selectedLanguage = 'en';
 let maxRetryAttempts = 3;
-let retryBaseCooldown = 3000;
+let retryBaseCooldown = 3000; // 3 seconds
 let cookieExpirationTime = 15768000; // 4,38 hours
 
 let cookies;
