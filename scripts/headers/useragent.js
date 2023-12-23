@@ -32,15 +32,15 @@ const userAgents = [
 ];
 
 module.exports = () => {
-	const randomUserAgent = userAgents[Math.floor(Math.random() * userAgents.length)];
+	const RandomUserAgent = userAgents[Math.floor(Math.random() * userAgents.length)];
 	return {
-		userAgent: randomUserAgent.agent,
-		secChUa: randomUserAgent.secChUa,
-		secChUaFullArch: randomUserAgent.secChUaFullArch,
-		secChUaFullBitness: randomUserAgent.secChUaFullBitness,
-		secChUaFullVersion: randomUserAgent.secChUaFullVersion,
-		secChUaFullVersionList: randomUserAgent.secChUaFullVersionList,
-		secChUaPlatform: randomUserAgent.secChUaPlatform,
-		secChUaPlatformVersion: randomUserAgent.secChUaPlatformVersion,
+		userAgent: RandomUserAgent.agent,
+		secChUa: RandomUserAgent.secChUa,
+		secChUaFullArch: RandomUserAgent.secChUaFullArch,
+		secChUaFullBitness: RandomUserAgent.secChUaFullBitness,
+		secChUaFullVersion: RandomUserAgent.secChUaFullVersion,
+		secChUaFullVersionList: RandomUserAgent.secChUaFullVersionList,
+		secChUaPlatform: RandomUserAgent.secChUaPlatform,
+		secChUaPlatformVersion: RandomUserAgent.secChUaPlatformVersion,
 	};
 };

@@ -1,5 +1,5 @@
-const randomUserAgent = require('./useragent.js');
-const { userAgent, secChUa, secChUaFullArch, secChUaFullBitness, secChUaFullVersion, secChUaFullVersionList, secChUaPlatform, secChUaPlatformVersion } = randomUserAgent();
+const RandomUserAgent = require('./useragent.js');
+const { userAgent, secChUa, secChUaFullArch, secChUaFullBitness, secChUaFullVersion, secChUaFullVersionList, secChUaPlatform, secChUaPlatformVersion } = RandomUserAgent();
 
 const DEFAULT_HEADERS = {
 	'Accept': '*/*',
