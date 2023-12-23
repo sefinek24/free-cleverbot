@@ -41,7 +41,7 @@ function buildMainPayload(stimulus, context, language) {
 		payload += `vText${i}=${encodeURIComponent(msg)}&`;
 	});
 
-	payload += `${language ? `cb_settings_language=${language}&` : ''}cb_settings_scripting=no&islearning=1&icognoid=wsf&icognocheck=`;
+	payload += `${language ? `cb_config_language=${language}&` : ''}cb_config_scripting=no&islearning=1&icognoid=wsf&icognocheck=`;
 	payload += payload + md5(payload.substring(7, 33));
 
 	if (debug) console.debug('Built payload:', { stimulus, context, language, payload });
@@ -152,9 +152,9 @@ CleverBot.interact = async (stimulus, context = [], language = selectedLanguage)
 	throw new Error(`Failed to get a response from Cleverbot after ${maxRetryAttempts} attempts.`);
 };
 
-CleverBot.settings = config => {
+CleverBot.config = config => {
 	if (typeof config !== 'object' || config === null) {
-		throw new Error('The settings must be provided as an object.');
+		throw new Error('The `config` must be provided as an object.');
 	}
 
 	if ('debug' in config) {

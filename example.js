@@ -1,6 +1,6 @@
 const CleverBot = require('./index.js');
 
-CleverBot.settings({
+CleverBot.config({
 	debug: false,
 	defaultLanguage: 'en',
 	maxRetryAttempts: 5,
@@ -22,7 +22,7 @@ const context = [];
 
 		console.log('Cleverbot response :', res);
 
-		// console.log('\nSettings           :', CleverBot.getVariables());
+		// console.log('\nconfig           :', CleverBot.getVariables());
 	} catch (err) {
 		console.error('Sorry, but something went wrong ):', err);
 	}

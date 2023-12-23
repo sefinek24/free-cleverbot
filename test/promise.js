@@ -3,7 +3,7 @@ const { logStartTests, logUserMessage, logCleverbotResponse, logWrongResponse, l
 
 // Add the --debug flag to start debugging: node test/promise.js --debug
 const isDebugMode = process.argv.slice(2).includes('--debug');
-if (isDebugMode) CleverBot.settings({ debug: true });
+if (isDebugMode) CleverBot.config({ debug: true });
 
 // Variables
 const message = 'Cat';

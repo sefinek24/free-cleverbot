@@ -55,8 +55,8 @@ A function for interacting with the Cleverbot API. It processes the provided mes
 - `language` (**string**, **optional**, **default**: `en`): The language in which the conversation is to be conducted.
 
 
-## ⚙️ Module Settings
-The module configuration includes the following settings:
+## ⚙️ Module config
+The module configuration includes the following config:
 
 | Variable                                                                                                                         | Value    | Description                                                   |
 |----------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------------------|
@@ -70,7 +70,7 @@ The module configuration includes the following settings:
 ```js
 const CleverBot = require('free-cleverbot');
 
-CleverBot.settings({
+CleverBot.config({
     debug: false,
     defaultLanguage: 'en',
     maxRetryAttempts: 5,
@@ -82,7 +82,7 @@ const message = 'Do you like cats? >w<';
 const context = [];
 
 (async () => {
-    const response = await CleverBot.interact(message, context); // `Input`, `conversation context`, `language` is not required if you are using `CleverBot.settings` with `defaultLanguage`
+    const response = await CleverBot.interact(message, context); // `Input`, `conversation context`, `language` is not required if you are using `CleverBot.config` with `defaultLanguage`
 
     /*
      * Add the user's message first to the context followed by Cleverbot's
