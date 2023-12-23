@@ -82,7 +82,7 @@ const message = 'Do you like cats? >w<';
 const context = [];
 
 (async () => {
-    const response = await CleverBot.interact(message, context); // Input, conversation context, language (not required if you are using `CleverBot.settings` with `defaultLanguage`)
+    const response = await CleverBot.interact(message, context); // `Input`, `conversation context`, `language` is not required if you are using `CleverBot.settings` with `defaultLanguage`
 
     /*
      * Add the user's message first to the context followed by Cleverbot's
