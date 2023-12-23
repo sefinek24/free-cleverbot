@@ -18,14 +18,18 @@ jobs:
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
-
-      - name: Run install
-        uses: borales/actions-yarn@v4
         with:
-          cmd: install
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set Yarn version to stable
+        run: yarn set version stable
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
 
       - name: Run async/await test
         run: node test/async.js
