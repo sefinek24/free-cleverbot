@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [16.x, 18.x, 20.x, 21.x]
 
     steps:
       - uses: actions/checkout@v4
@@ -30,3 +30,6 @@ jobs:
 
       - name: Run promise test
         run: node test/promise.js
+
+      - name: Check memory usage
+        run: node test/memory.usage.js
