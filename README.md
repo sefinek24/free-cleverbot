@@ -17,8 +17,8 @@
     </p>
 </div>
 
-This module enables developers to interact with the Cleverbot [API](https://en.wikipedia.org/wiki/API) without requiring an official [API key](https://en.wikipedia.org/wiki/API_key),
-offering a convenient and cost-effective solution for integrating Cleverbot chatbot capabilities into your projects.
+This module allows developers to interact with the Cleverbot [API](https://en.wikipedia.org/wiki/API) without needing an official [API key](https://en.wikipedia.org/wiki/API_key),
+providing a convenient and cost-effective way to integrate Cleverbot chatbot features into their projects.
 
 
 ## 🔒 Security
