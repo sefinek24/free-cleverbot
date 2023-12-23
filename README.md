@@ -50,9 +50,9 @@ npm install free-cleverbot
 ### `CleverBot(message, context[], language)`
 A function for interacting with the Cleverbot API. It processes the provided message, context, and language, then returns a response from Cleverbot.
 
-- `message` (**string**): The message that the user wants to send to Cleverbot. This is the primary text to which Cleverbot will respond.
-- `context[]` (**array**): An array containing the history of previous messages in the conversation. Used to maintain the context of the conversation. Each element of the array represents one line of dialogue.
-- `language` (**string**, **default**: `en`): The language in which the conversation is to be conducted.
+- `message` (**string**, **required**): The message that the user wants to send to Cleverbot. This is the primary text to which Cleverbot will respond.
+- `context[]` (**array**, **required**): An array containing the history of previous messages in the conversation. Used to maintain the context of the conversation. Each element of the array represents one line of dialogue.
+- `language` (**string**, **optional**, **default**: `en`): The language in which the conversation is to be conducted.
 
 
 ## ⚙️ Module Settings
