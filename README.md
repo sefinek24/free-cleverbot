@@ -70,7 +70,7 @@ The module configuration includes the following settings:
 ```js
 const CleverBot = require('free-cleverbot');
 
-Cleverbot.settings({
+CleverBot.settings({
     debug: false,
     maxRetryAttempts: 5,
     retryBaseCooldown: 4000,
