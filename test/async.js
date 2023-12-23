@@ -29,7 +29,7 @@ const interactWithCleverBot = async () => {
 		}
 	}
 
-	if (isDebugMode) console.debug(CleverBot.getVariables());
+	if (isDebugMode) console.debug(CleverBot.getData());
 };
 
 logStartTests(`» Starting async/await test (version ${CleverBot.version})...`);

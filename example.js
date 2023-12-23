@@ -22,7 +22,7 @@ const context = [];
 
 		console.log('Cleverbot response :', res);
 
-		// console.log('\nconfig           :', CleverBot.getVariables());
+		// console.log('\nconfig           :', CleverBot.getData());
 	} catch (err) {
 		console.error('Sorry, but something went wrong ):', err);
 	}
