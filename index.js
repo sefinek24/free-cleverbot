@@ -41,7 +41,8 @@ function buildMainPayload(stimulus, context, language) {
 		payload += `vText${i}=${encodeURIComponent(msg)}&`;
 	});
 
-	payload += `${language ? `cb_settings_language=${language}&` : ''}cb_settings_scripting=no&islearning=1&icognoid=wsf&icognocheck=${md5(payload.substring(7, 33))}`;
+	payload += `${language ? `cb_settings_language=${language}&` : ''}cb_settings_scripting=no&islearning=1&icognoid=wsf&icognocheck=`;
+	payload += payload + md5(payload.substring(7, 33));
 
 	if (debug) console.debug('Built Payload:', { stimulus, context, language, payload });
 	return payload;
