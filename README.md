@@ -47,7 +47,7 @@ npm install free-cleverbot
 
 ## 🔧 » Usage
 
-### `CleverBot(message, context[], language)`
+### `CleverBot.interact(message, context[], language)`
 A function for interacting with the Cleverbot API. It processes the provided message, context, and language, then returns a response from Cleverbot.
 
 - `message` (**string**, **required**): The message that the user wants to send to Cleverbot. This is the primary text to which Cleverbot will respond.
@@ -58,13 +58,13 @@ A function for interacting with the Cleverbot API. It processes the provided mes
 ## ⚙️ Module Settings
 The module configuration includes the following settings:
 
-| Variable                                                                                                                        | Value    | Description                                                   |
-|---------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------------------|
-| [`debug`]()                                                                                                                     | false    |                                                               |
-| [`selectedLanguage`]()                                                                                                          | en       |                                                               |
-| [`maxRetryAttempts`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L6)     | 3        | The maximum number of attempts to make a request to the API.  |
-| [`retryBaseCooldown`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L7)    | 3000     | Base cooldown in case of API error (3 seconds).               |
-| [`cookieExpirationTime`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L8) | 15768000 | The expiration time for cookies in milliseconds (4,38 hours). |
+| Variable                                                                                                                         | Value    | Description                                                   |
+|----------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------------------|
+| [`debug`](https://github.com/sefinek24/free-cleverbot/blob/36887fa8433b03269da0a40575790d4494814e6a/index.js#L9)                 | false    |                                                               |
+| [`selectedLanguage`](https://github.com/sefinek24/free-cleverbot/blob/36887fa8433b03269da0a40575790d4494814e6a/index.js#L10)     | en       |                                                               |
+| [`maxRetryAttempts`](https://github.com/sefinek24/free-cleverbot/blob/36887fa8433b03269da0a40575790d4494814e6a/index.js#L11)     | 3        | The maximum number of attempts to make a request to the API.  |
+| [`retryBaseCooldown`](https://github.com/sefinek24/free-cleverbot/blob/36887fa8433b03269da0a40575790d4494814e6a/index.js#L12)    | 3000     | Base cooldown in case of API error (3 seconds).               |
+| [`cookieExpirationTime`](https://github.com/sefinek24/free-cleverbot/blob/36887fa8433b03269da0a40575790d4494814e6a/index.js#L13) | 15768000 | The expiration time for cookies in milliseconds (4,38 hours). |
 
 ## 💬 Example (see also [example.js](example.js))
 ```js
