@@ -1,7 +1,7 @@
 const axios = require('axios');
 const sleep = require('./scripts/sleep.js');
 const md5 = require('./scripts/md5.js');
-const DEFAULT_HEADERS = require('./scripts/useragent/object.js');
+const DEFAULT_HEADERS = require('./scripts/headers/default-headers.js');
 
 const MAX_RETRY_ATTEMPTS = 3;
 const RETRY_BASE_COOLDOWN = 4000;
