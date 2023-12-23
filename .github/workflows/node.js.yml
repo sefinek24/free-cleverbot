@@ -28,6 +28,9 @@ jobs:
       - name: Run async/await test
         run: node test/async.js
 
+      - name: Run async/await test (debug)
+        run: node test/async.js --debug
+
       - name: Run promise test
         run: node test/promise.js
 

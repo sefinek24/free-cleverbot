@@ -58,21 +58,30 @@ A function for interacting with the Cleverbot API. It processes the provided mes
 ## ⚙️ Module Settings
 The module configuration includes the following settings:
 
-| Variable                                                                                                                          | Value    | Description                                                   |
-|-----------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------------------|
-| [`MAX_RETRY_ATTEMPTS`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L6)     | 3        | The maximum number of attempts to make a request to the API.  |
-| [`RETRY_BASE_COOLDOWN`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L7)    | 3000     | Base cooldown in case of API error (3 seconds).               |
-| [`COOKIE_EXPIRATION_TIME`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L8) | 15768000 | The expiration time for cookies in milliseconds (4,38 hours). |
+| Variable                                                                                                                        | Value    | Description                                                   |
+|---------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------------------|
+| [`debug`]()                                                                                                                     | false    |                                                               |
+| [`selectedLanguage`]()                                                                                                          | en       |                                                               |
+| [`maxRetryAttempts`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L6)     | 3        | The maximum number of attempts to make a request to the API.  |
+| [`retryBaseCooldown`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L7)    | 3000     | Base cooldown in case of API error (3 seconds).               |
+| [`cookieExpirationTime`](https://github.com/sefinek24/free-cleverbot/blob/cd18fe5b8516607341155b35e7e48b2c64f1a233/index.js#L8) | 15768000 | The expiration time for cookies in milliseconds (4,38 hours). |
 
 ## 💬 Example (see also [example.js](example.js))
 ```js
 const CleverBot = require('free-cleverbot');
 
+Cleverbot.settings({
+    debug: false,
+    maxRetryAttempts: 5,
+    retryBaseCooldown: 4000,
+    cookieExpirationTime: 18000000
+});
+
 const message = 'Do you like cats? >w<';
 const context = [];
 
 (async () => {
-    const response = await CleverBot(message, context, 'en'); // Input, conversation context, language
+    const response = await CleverBot.interact(message, context, 'en'); // Input, conversation context, language
 
     /*
      * Add the user's message first to the context followed by Cleverbot's

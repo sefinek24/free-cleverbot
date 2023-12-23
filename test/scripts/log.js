@@ -1,9 +1,28 @@
+const kleur = require('kleur');
+
+/* Start tests */
+const logStartTests = text => {
+	console.log(kleur.bgWhite(text));
+};
+
+/* Conversation */
 const logUserMessage = (i, message) => {
-	console.log(`[Interaction ${i + 1}]: 🡸 ${message}`);
+	console.log(kleur.blue(`[Interaction ${i + 1}]: 🡸 ${message}`));
 };
 
 const logCleverbotResponse = (i, response) => {
-	console.log(`[Interaction ${i + 1}]: 🡺 ${response}`);
+	console.log(kleur.green(`[Interaction ${i + 1}]: 🡺 ${response}`));
 };
 
-module.exports = { logUserMessage, logCleverbotResponse };
+/* Errors */
+const logWrongResponse = i => {
+	console.log(kleur.red(`CleverBOT did not return a response at interaction ${i + 1}.`));
+	process.exit(1);
+};
+
+const logFatalError = (i, err) => {
+	console.log(kleur.red(`Error during interaction ${i + 1}: ${err.message}`));
+	process.exit(1);
+};
+
+module.exports = { logStartTests, logUserMessage, logCleverbotResponse, logWrongResponse, logFatalError };

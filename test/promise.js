@@ -1,5 +1,5 @@
 const CleverBot = require('../index.js');
-const { logUserMessage, logCleverbotResponse } = require('./scripts/log.js');
+const { logStartTests, logUserMessage, logCleverbotResponse, logWrongResponse, logFatalError } = require('./scripts/log.js');
 
 const message = 'Cat?';
 const context = [];
@@ -11,12 +11,9 @@ const interactWithCleverBot = i => {
 	const messageToSend = i === 0 ? message : context[context.length - 1];
 	logUserMessage(i, messageToSend);
 
-	CleverBot(messageToSend, context, 'en')
+	CleverBot.interact(messageToSend, context, 'en')
 		.then(res => {
-			if (!res) {
-				console.error(`CleverBOT did not return a response at interaction ${i + 1}.`);
-				process.exit(1);
-			}
+			if (!res) return logWrongResponse(i);
 
 			context.push(messageToSend);
 			context.push(res);
@@ -25,10 +22,10 @@ const interactWithCleverBot = i => {
 			interactWithCleverBot(i + 1);
 		})
 		.catch(err => {
-			console.error(`Error during interaction ${i + 1}: ${err.message}`);
+			logFatalError(i, err);
 			interactWithCleverBot(i + 1);
 		});
 };
 
-console.log('» Starting promise test...');
+logStartTests(`» Starting promise test (version ${CleverBot.version})...`);
 interactWithCleverBot(0);

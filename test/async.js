@@ -1,6 +1,11 @@
 const CleverBot = require('../index.js');
-const { logUserMessage, logCleverbotResponse } = require('./scripts/log.js');
+const { logStartTests, logUserMessage, logCleverbotResponse, logWrongResponse, logFatalError } = require('./scripts/log.js');
 
+// Debug
+const isDebugMode = process.argv.slice(2).includes('--debug');
+if (isDebugMode) CleverBot.settings({ debug: true });
+
+// Variables
 const message = 'Do you like kittens?';
 const context = [];
 const totalInteractions = 5;
@@ -11,22 +16,21 @@ const interactWithCleverBot = async () => {
 		logUserMessage(i, messageToSend);
 
 		try {
-			const res = await CleverBot(messageToSend, context, 'en');
-			if (!res) {
-				console.error(`CleverBOT did not return a response at interaction ${i + 1}.`);
-				process.exit(1);
-			}
+			const res = await CleverBot.interact(messageToSend, context, 'en');
+			if (!res) return logWrongResponse(i);
 
 			context.push(messageToSend);
 			context.push(res);
 
 			logCleverbotResponse(i, res);
 		} catch (err) {
-			console.error(`Error during interaction ${i + 1}: ${err.message}`);
+			logFatalError(i, err);
 			break;
 		}
 	}
+
+	if (isDebugMode) console.debug(CleverBot.getVariables());
 };
 
-console.log('» Starting async/await test...');
+logStartTests(`» Starting async/await test (version ${CleverBot.version})...`);
 interactWithCleverBot().then(() => console.log());
