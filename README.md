@@ -72,7 +72,7 @@ const CleverBot = require('free-cleverbot');
 
 CleverBot.settings({
     debug: false,
-    defaultLanguage: 'eng',
+    defaultLanguage: 'en',
     maxRetryAttempts: 5,
     retryBaseCooldown: 4000,
     cookieExpirationTime: 18000000
