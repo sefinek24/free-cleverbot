@@ -18,21 +18,25 @@ jobs:
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
+
+      - name: Run install
+        uses: borales/actions-yarn@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cmd: install
 
       - name: Install dependencies
         run: yarn install
+        with:
+          cmd: test
 
       - name: Run async/await test
-        run: yarn node test/async.js
+        run: node test/async.js
 
       - name: Run async/await test (debug)
-        run: yarn node test/async.js --debug
+        run: node test/async.js --debug
 
       - name: Run promise test
-        run: yarn node test/promise.js
+        run: node test/promise.js
 
       - name: Check memory usage
-        run: yarn node test/memory.usage.js
+        run: node test/memory.usage.js
