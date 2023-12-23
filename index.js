@@ -129,6 +129,7 @@ async function callCleverbotAPI(stimulus, context, language) {
 	}
 }
 
+
 CleverBot.interact = async (stimulus, context = [], language = selectedLanguage) => {
 	let incrementalDelay = 0;
 
@@ -152,48 +153,49 @@ CleverBot.interact = async (stimulus, context = [], language = selectedLanguage)
 };
 
 CleverBot.settings = config => {
-	if (typeof config === 'object' && config !== null) {
-		if ('debug' in config) {
-			debug = !!config.debug;
-		}
-		if ('defaultLanguage' in config) {
-			const lang = config.defaultLanguage;
-			if (typeof lang === 'string' && SUPPORTED_LANGUAGES.has(lang)) {
-				selectedLanguage = lang;
-			} else {
-				throw new Error(`Invalid value for defaultLanguage.\nSupported languages are: ${[...SUPPORTED_LANGUAGES].join(', ')}`);
-			}
-		}
-		if ('maxRetryAttempts' in config) {
-			if (typeof config.maxRetryAttempts === 'number' && config.maxRetryAttempts > 0) {
-				maxRetryAttempts = config.maxRetryAttempts;
-			} else {
-				throw new Error('Invalid value for maxRetryAttempts. It must be a positive number.');
-			}
-		}
-		if ('retryBaseCooldown' in config) {
-			if (typeof config.retryBaseCooldown === 'number' && config.retryBaseCooldown > 0) {
-				retryBaseCooldown = config.retryBaseCooldown;
-			} else {
-				throw new Error('Invalid value for retryBaseCooldown. It must be a positive number.');
-			}
-		}
-		if ('cookieExpirationTime' in config) {
-			if (typeof config.cookieExpirationTime === 'number' && config.cookieExpirationTime > 0) {
-				cookieExpirationTime = config.cookieExpirationTime;
-			} else {
-				throw new Error('Invalid value for cookieExpirationTime. It must be a positive number.');
-			}
-		}
-	} else {
+	if (typeof config !== 'object' || config === null) {
 		throw new Error('The settings must be provided as an object.');
+	}
+
+	if ('debug' in config) {
+		if (typeof config.debug !== 'boolean') {
+			throw new Error('Invalid value for `debug`. It must be a boolean.');
+		}
+		debug = config.debug;
+	}
+
+	if ('defaultLanguage' in config) {
+		const lang = config.defaultLanguage;
+		if (typeof lang !== 'string' || !SUPPORTED_LANGUAGES.has(lang)) {
+			throw new Error(`Invalid value for \`defaultLanguage\`.\nSupported languages are: ${[...SUPPORTED_LANGUAGES].join(', ')}`);
+		}
+		selectedLanguage = lang;
+	}
+
+	if ('maxRetryAttempts' in config) {
+		if (typeof config.maxRetryAttempts !== 'number' || config.maxRetryAttempts <= 0) {
+			throw new Error('Invalid value for `maxRetryAttempts`. It must be a positive number.');
+		}
+		maxRetryAttempts = config.maxRetryAttempts;
+	}
+
+	if ('retryBaseCooldown' in config) {
+		if (typeof config.retryBaseCooldown !== 'number' || config.retryBaseCooldown <= 0) {
+			throw new Error('Invalid value for `retryBaseCooldown`. It must be a positive number.');
+		}
+		retryBaseCooldown = config.retryBaseCooldown;
+	}
+
+	if ('cookieExpirationTime' in config) {
+		if (typeof config.cookieExpirationTime !== 'number' || config.cookieExpirationTime <= 0) {
+			throw new Error('Invalid value for `cookieExpirationTime`. It must be a positive number.');
+		}
+		cookieExpirationTime = config.cookieExpirationTime;
 	}
 };
 
 CleverBot.getVariables = () => {
 	return { debug, selectedLanguage, maxRetryAttempts, retryBaseCooldown, cookie: { cookieExpirationTime, data: [{ content: cookies, lastUpdate: lastCookieUpdate }] }, session: { cbsId, xai, ns, lastResponse }, request: { successfulRequestsCount, failedRequestsCount, headers: DEFAULT_HEADERS } };
 };
-
-CleverBot.version = version;
 
 module.exports = CleverBot;
