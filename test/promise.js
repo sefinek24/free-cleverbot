@@ -1,7 +1,7 @@
 const CleverBot = require('../index.js');
 const { logStartTests, logUserMessage, logCleverbotResponse, logWrongResponse, logFatalError } = require('./scripts/log.js');
 
-// Debug
+// Add the --debug flag to start debugging: node test/promise.js --debug
 const isDebugMode = process.argv.slice(2).includes('--debug');
 if (isDebugMode) CleverBot.settings({ debug: true });
 
