@@ -4,10 +4,14 @@ const msg = 'Hello';
 const context = [];
 
 (async () => {
-	const res = await CleverBot(msg, context, 'en');
+	try {
+		const res = await CleverBot(msg, context, 'en');
 
-	context.push(msg.content);
-	context.push(res);
+		context.push(msg.content);
+		context.push(res);
 
-	console.log(res);
+		console.log(res);
+	} catch (err) {
+		console.error('Sorry, but something went wrong ):', err);
+	}
 })();
