@@ -52,17 +52,17 @@ A function for interacting with the Cleverbot API. It processes the provided mes
 
 - `message` (**string**, **required**): The message that the user wants to send to Cleverbot. This is the primary text to which Cleverbot will respond.
 - `context[]` (**array**, **required**): An array containing the history of previous messages in the conversation. Used to maintain the context of the conversation. Each element of the array represents one line of dialogue.
-- `language` (**string**, **optional**, **default**: `en`): The language in which the conversation is to be conducted.
+- `language` (**string**, **optional**, **default:** `en`): The language in which the conversation is to be conducted.
 
 ### `CleverBot.config(configurationObject)`
 Configures the settings of the Cleverbot module. This function allows you to set various options that affect how the module interacts with the Cleverbot API.
 
 - `configurationObject` (**object**, **required**): An object containing configuration settings.
-    - `debug` (**boolean**, **not required**): If set to `true`, the module will provide detailed debug information.
-    - `defaultLanguage` (**string**, **not required**): The default language for the Cleverbot conversations.
-    - `maxRetryAttempts` (**number**, **not required**): The maximum number of retry attempts for the API call if it fails initially.
-    - `retryBaseCooldown` (**number**, **not required**): The base cooldown period (in milliseconds) before retrying the API call.
-    - `cookieExpirationTime` (**number**, **not required**): The time (in milliseconds) after which the cookie should be refreshed.
+    - `debug` (**boolean**, **not required**, **default:** `false`): If set to `true`, the module will provide detailed debug information.
+    - `defaultLanguage` (**string**, **not required**, **default:** `en`): The default language for the Cleverbot conversations.
+    - `maxRetryAttempts` (**number**, **not required**, **default:** `3`): The maximum number of retry attempts for the API call if it fails initially.
+    - `retryBaseCooldown` (**number**, **not required**, **default:** `3000`): The base cooldown period (in milliseconds) before retrying the API call.
+    - `cookieExpirationTime` (**number**, **not required**, **default:** `15768000`): The time (in milliseconds) after which the cookie should be refreshed.
 
 ### `CleverBot.getData()`
 Retrieves the current session data and other relevant information stored in the Cleverbot module.
