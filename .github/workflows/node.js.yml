@@ -22,10 +22,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Run install
-        uses: borales/actions-yarn@master
-        with:
-          cmd: install
+      - name: corepack enable
+        run: corepack enable
+
+      - name: yarn set version stable
+        run: yarn set version stable
 
       - name: Run async/await test
         run: node test/async.js
