@@ -20,16 +20,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: 'npm'
 
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Set Yarn version to stable
-        run: yarn set version stable
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: npm ci
 
       - name: Run async/await test
         run: node test/async.js
