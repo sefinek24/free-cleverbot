@@ -39,9 +39,11 @@ Therefore, consider the following guidelines:
 
 ## 📥 Installation
 Install this module using [npm 🔺](https://www.npmjs.com) or [yarn 🐈](https://yarnpkg.com):
-
 ```bash
 npm install free-cleverbot
+```
+```bash
+yarn add free-cleverbot
 ```
 
 
