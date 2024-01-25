@@ -109,11 +109,15 @@ async function callCleverbotAPI(stimulus, context, language) {
 			},
 		});
 
+		const { data } = response;
+		if (!data) {
+			throw new Error(`The response from Cleverbot API is empty: ${data}`);
+		}
+
 		successfulRequestsCount++;
+		if (debug) console.debug('Received response from Cleverbot:', { response: data });
 
-		if (debug) console.debug('Received response from Cleverbot:', { response: response.data });
-
-		const responseLines = response.data.split('\r');
+		const responseLines = data.split('\r');
 		if (responseLines.length >= 3) {
 			cbsId = responseLines[1];
 			xai = `${cbsId.substring(0, 3)},${responseLines[2]}`;
@@ -121,7 +125,7 @@ async function callCleverbotAPI(stimulus, context, language) {
 			return lastResponse;
 		}
 
-		console.error('Failure: The response format from Cleverbot API is invalid!');
+		console.error('The response format from Cleverbot API is invalid!');
 	} catch (err) {
 		failedRequestsCount++;
 
@@ -192,6 +196,17 @@ CleverBot.config = config => {
 		}
 		cookieExpirationTime = config.cookieExpirationTime;
 	}
+};
+
+CleverBot.newSession = () => {
+	cookies = undefined;
+	lastCookieUpdate = 0;
+	cbsId = undefined;
+	xai = undefined;
+	ns = 0;
+	lastResponse = undefined;
+	successfulRequestsCount = 0;
+	failedRequestsCount = 0;
 };
 
 CleverBot.getData = () => {
