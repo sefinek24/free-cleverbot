@@ -8,7 +8,7 @@ CleverBot.config({
 	cookieExpirationTime: 15768000,
 });
 
-const msg = 'Hello';
+const msg = 'Hello my buddy!';
 const context = [];
 
 (async () => {

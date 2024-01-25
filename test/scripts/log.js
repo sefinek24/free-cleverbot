@@ -1,7 +1,7 @@
 const kleur = require('kleur');
 
 /* Start tests */
-const logStartTests = text => {
+const whiteMsg = text => {
 	console.log(kleur.bgWhite(text));
 };
 
@@ -25,4 +25,4 @@ const logFatalError = (i, err) => {
 	process.exit(1);
 };
 
-module.exports = { logStartTests, logUserMessage, logCleverbotResponse, logWrongResponse, logFatalError };
+module.exports = { whiteMsg, logUserMessage, logCleverbotResponse, logWrongResponse, logFatalError };

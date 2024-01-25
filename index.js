@@ -199,14 +199,14 @@ CleverBot.config = config => {
 };
 
 CleverBot.newSession = () => {
+	if (debug) console.debug('newSession(): Successfully deleted session data');
+
 	cookies = undefined;
 	lastCookieUpdate = 0;
 	cbsId = undefined;
 	xai = undefined;
 	ns = 0;
 	lastResponse = undefined;
-	successfulRequestsCount = 0;
-	failedRequestsCount = 0;
 };
 
 CleverBot.getData = () => {

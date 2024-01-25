@@ -47,7 +47,7 @@ yarn add free-cleverbot
 ```
 
 
-## 🔧 » Usage
+## 🔧 » Documentation
 
 ### `CleverBot.interact(message, context[], language)`
 A function for interacting with the Cleverbot API. It processes the provided message, context, and language, then returns a response from Cleverbot.
@@ -73,6 +73,11 @@ Configures the settings of the Cleverbot module. This function allows you to set
 Retrieves the current session data and other relevant information.
 
 - **Returns**: See [types](https://github.com/sefinek24/free-cleverbot/blob/c0c6748fb8828a611b005216e768af370cb61ea4/index.d.ts#L64).
+
+### `CleverBot.newSession()`
+Allows for the deletion of the current session and the initiation of a new one. The conversation context should also be removed.
+
+- **Returns**: Nothing.
 
 ### `CleverBot.version`
 A property that represents the current version number of the `free-cleverbot` module, conforming to the Semantic Versioning (SemVer) standard.

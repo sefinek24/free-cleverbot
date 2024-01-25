@@ -127,6 +127,19 @@ declare module 'free-cleverbot' {
     export function getData(): CleverBotData;
 
     /**
+     * Allows for the deletion of the current session and the initiation of a new one. The conversation context should also be removed.
+     *
+     * @example
+     * const CleverBot = require('free-cleverbot');
+     *
+     * const context = ['Hello', 'Hi', 'How are you?'];
+     *
+     * CleverBot.newSession();
+     * context = [];
+     */
+    export function newSession(): void;
+
+    /**
      * Represents the version number of the `free-cleverbot` module.
      * This property contains a string that specifies the current version of the module,
      * conforming to the Semantic Versioning (SemVer) standard.
