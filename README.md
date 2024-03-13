@@ -132,4 +132,4 @@ It is inspired by the [IntriguingTiles/cleverbot-free](https://github.com/Intrig
 
 
 ## 📝 MIT License
-Copyright 2023 © by [Sefinek](https://sefinek.net). All Rights Reserved.
+Copyright 2023-2024 © by [Sefinek](https://sefinek.net). All Rights Reserved.
