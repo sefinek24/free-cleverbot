@@ -1,6 +1,6 @@
 {
   "name": "free-cleverbot",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Simple and unofficial NPM module for interacting with the same API that the Cleverbot website uses. Available for free!",
   "keywords": [
     "cleverbot",
