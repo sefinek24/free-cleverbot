@@ -1,31 +1,22 @@
 const RandomUserAgent = require('./useragent.js');
-const { userAgent, secChUa, secChUaFullArch, secChUaFullBitness, secChUaFullVersion, secChUaFullVersionList, secChUaPlatform, secChUaPlatformVersion } = RandomUserAgent();
+const { userAgent, secChUa, secChUaPlatform } = RandomUserAgent();
 
 const DEFAULT_HEADERS = {
-	'Accept': '*/*',
-	'Accept-Encoding': 'gzip, deflate, br',
-	'Accept-Language': 'en;q=0.7',
+	'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+	'Accept-Encoding': 'gzip, deflate, br, zstd',
+	'Accept-Language': 'en-US;q=0.7',
 	'Cache-Control': 'no-cache',
 	'Connection': 'keep-alive',
-	'Content-Type': 'text/plain;charset=UTF-8',
 	'Host': 'www.cleverbot.com',
 	'Pragma': 'no-cache',
-	'Origin': 'https://www.cleverbot.com',
-	'Referer': 'https://www.cleverbot.com/',
 	'Sec-Ch-Ua': secChUa,
-	'Sec-Ch-Ua-Arch': secChUaFullArch,
-	'Sec-Ch-Ua-Bitness': secChUaFullBitness,
-	'Sec-Ch-Ua-Full-Version': secChUaFullVersion,
-	'Sec-Ch-Ua-Full-Version-List': secChUaFullVersionList,
 	'Sec-Ch-Ua-Mobile': '?0',
-	'Sec-Ch-Ua-Model': '""',
 	'Sec-Ch-Ua-Platform': secChUaPlatform,
-	'Sec-Ch-Ua-Platform-Version': secChUaPlatformVersion,
-	'Sec-Ch-Ua-Wow64': '?0',
-	'Sec-Fetch-Dest': 'empty',
-	'Sec-Fetch-Mode': 'cors',
-	'Sec-Fetch-Site': 'same-origin',
-	'Sec-Gpc': '1',
+	'Sec-Fetch-Dest': 'document',
+	'Sec-Fetch-Mode': 'navigate',
+	'Sec-Fetch-Site': 'none',
+	'Sec-Fetch-User': '?1',
+	'Upgrade-Insecure-Requests': '1',
 	'User-Agent': userAgent,
 };
 
